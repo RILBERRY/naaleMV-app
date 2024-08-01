@@ -14,11 +14,13 @@ return new class extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->json('address');
+            $table->string('address');
+            $table->string('island');
             $table->string('nid');
             $table->date('dob');
             $table->string('age_at_feb');
-            $table->json('gurdian')->nullable();
+            $table->string('gurdian_name')->nullable();
+            $table->string('gurdian_contact')->nullable();
             $table->foreignId('grade_id')->nullable()->constrained('grades');
             $table->string('class')->nullable();
             $table->string('index')->nullable();

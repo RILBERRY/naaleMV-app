@@ -4,6 +4,6 @@
 @section('content')
 
 
-<livewire:student-list >
+<livewire:student-competition-lists >
 
 @endsection

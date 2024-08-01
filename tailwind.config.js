@@ -2,6 +2,7 @@
 export default {
   darkMode: 'media',
   content: [
+    './vendor/wire-elements/modal/resources/views/*.blade.php',
     "./resources/**/*.blade.php",
     "./resources/**/*.js",
     "./resources/**/*.vue",
