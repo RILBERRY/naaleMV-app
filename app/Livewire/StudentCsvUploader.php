@@ -15,6 +15,9 @@ class StudentCsvUploader extends ModalComponent
 
     public function processFile() {
         Excel::import(new StudentImport, $this->file);
+        $this->closeModalWithEvents([
+            StudentList::class => 'studentUpdated'
+        ]);
     }
     public function render()
     {

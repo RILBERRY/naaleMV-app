@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Http\Controllers\ActivityLoggerController;
 use App\Models\Competition;
 use App\Models\Student;
 use Livewire\Component;
@@ -11,6 +12,7 @@ use LivewireUI\Modal\ModalComponent;
 class CreateUpdateCompetition extends ModalComponent
 {
     public $availableIncludeFields;
+    public $data;
     public $competition = [
         'id' => null,
         'name' => null,
@@ -24,6 +26,12 @@ class CreateUpdateCompetition extends ModalComponent
         $this->competition['included_fields'] = array_keys($this->availableIncludeFields);
         if($competition_id){
             $this->competition = Competition::findOrFail($competition_id)->toArray();
+            $this->data = [
+                'table_name' => 'Competition',
+                'user_id' => auth()->user()->id,
+                'data_from' => $this->competition,
+                'data_to' => [],
+            ];
         }
     }
 
@@ -32,7 +40,17 @@ class CreateUpdateCompetition extends ModalComponent
             'competition.name' => 'required',
         ]);
         $this->competition['slug'] = Str::slug($this->competition['name']);
-        Competition::create( $this->competition );
+        $competition = Competition::create( $this->competition );
+        $data = [
+            'table_name' => 'Competition',
+            'user_id' => auth()->user()->id,
+            'data_from' => [],
+            'data_to' => $competition,
+        ];
+
+        $activityLogger = new ActivityLoggerController();
+        $activityLogger->logActivity($data);
+
         $this->closeModalWithEvents([
             StudentCompetitionLists::class => 'competitionUpdated'
         ]);
@@ -46,7 +64,13 @@ class CreateUpdateCompetition extends ModalComponent
         $this->competition['slug'] = Str::slug($this->competition['name']);
 
         $competition = Competition::findOrFail($this->competition['id']);
+
         $competition->update($this->competition);
+
+        $this->data['data_to'] = $competition;
+        $activityLogger = new ActivityLoggerController();
+        $activityLogger->logActivity($this->data);
+
         $this->closeModalWithEvents([
             StudentCompetitionLists::class => 'competitionUpdated'
         ]);

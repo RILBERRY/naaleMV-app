@@ -45,7 +45,6 @@ class StudentListGenerator extends Component
     {
         return CompetitionStudent::join('students', 'competition_students.student_id', '=', 'students.id') // Join the supplyer_info table
         ->where('competition_id', $this->competition->id)
-
         ->where(function ($query) {
             $query->where('students.name', 'like',  '%' . $this->query . '%')
                 ->orWhere('students.nid', 'like', '%' . $this->query . '%')

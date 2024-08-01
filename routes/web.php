@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActivityLoggerController;
 use App\Http\Controllers\CompetitionStudentController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
@@ -25,4 +26,5 @@ Route::middleware(['auth', AdminApproved::class])->group(function () {
     Route::get('/user/{id}/revoke', [UserController::class, 'revoke'] );
     Route::get('/competition/{id}/remove/{studentId}', [CompetitionStudentController::class, 'remove'] );
     Route::get('/competition/{id}/export', [CompetitionStudentController::class, 'export'] );
+    Route::get('/log', [ActivityLoggerController::class, 'log'] )->name('user-list');
 });

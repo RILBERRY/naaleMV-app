@@ -25,7 +25,7 @@ class StudentImport implements ToModel, WithHeadingRow
             'grade_id' => $row['grade'],
             'index' => $row['index'],
             'gurdian_name'=>$row['gurdian'],
-            'gurdian_contact'=>$row['gurdian'],
+            'gurdian_contact'=>$row['contact'],
         ]);
     }
 }

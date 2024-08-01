@@ -12,7 +12,7 @@ class StudentList extends Component
 
     public $query = '';
     public $sortField = 'id';
-    public $sortType = 'asc';
+    public $sortType = 'desc';
 
     public function search()
     {

@@ -1,0 +1,21 @@
+dob,age_at_feb,name,address,island,nid,grade,index,gurdian,contact
+2008-01-15,6,John Doe,123 Palm St,Island A,A123456789,8,1,Jane Doe,555123423
+2007-05-22,6,Mary Smith,456 Oak Dr,Island B,B987654321,9,2,Robert Smith,555121242
+2008-09-10,6,Michael Johnson,789 Pine Ln,Island C,C135792468,8,3,Lisa Johnson,555119061
+2007-12-30,6,Emily Davis,321 Cedar Rd,Island A,D246813579,9,4,Thomas Davis,555116880
+2008-04-18,6,David Brown,654 Birch St,Island B,E864209753,8,5,Karen Brown,555114699
+2007-08-25,6,Sarah Wilson,987 Maple Ave,Island C,F102938475,9,6,Mark Wilson,555112518
+2008-11-14,6,James Jones,147 Spruce St,Island A,G564738291,8,7,Patricia Jones,555110337
+2007-03-03,6,Laura Miller,258 Elm St,Island B,H920384756,9,8,Steven Miller,555108156
+2008-06-21,6,Robert Martinez,369 Pine Cir,Island C,I384756201,8,9,Nancy Martinez,555105975
+2007-10-12,6,Linda Anderson,741 Maple Pl,Island A,J564738291,9,10,Richard Anderson,555103794
+2008-02-28,6,Kevin Thomas,852 Oak Ln,Island B,K102938475,8,11,Barbara Thomas,555101613
+2007-07-19,6,Karen Taylor,963 Birch Rd,Island C,L293847560,9,12,Paul Taylor,555099432
+2008-12-07,6,Nancy Harris,159 Cedar St,Island A,M102938475,8,13,Laura Harris,555097251
+2007-01-15,6,Brian White,753 Elm Cir,Island B,N475839201,9,14,Susan White,555095070
+2008-05-22,6,Jessica Lewis,951 Oak Cir,Island C,O293847560,8,15,Daniel Lewis,555092889
+2007-09-10,6,Joshua Walker,753 Pine Rd,Island A,P475839201,9,16,Emma Walker,555090708
+2008-12-30,6,Sandra Young,357 Maple Cir,Island B,Q475839201,8,17,Chris Young,555088527
+2007-04-18,6,Donna King,123 Cedar Ave,Island C,R384756201,9,18,Eric King,555086346
+2008-08-25,6,Daniel Wright,654 Pine St,Island A,S102938475,8,19,Alice Wright,555084165
+2007-11-14,6,Patricia Scott,852 Elm Pl,Island B,T293847560,9,20,Frank Scott,555081984

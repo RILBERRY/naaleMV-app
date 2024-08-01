@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Http\Controllers\ActivityLoggerController;
 use App\Models\Grade;
 use App\Models\Student;
 use Livewire\Component;
@@ -10,6 +11,7 @@ use LivewireUI\Modal\ModalComponent;
 class CreateUpdateStudent extends ModalComponent
 {
     public $teachingGrades;
+    public $data;
 
     public $student = [
         'id' => null,
@@ -31,6 +33,12 @@ class CreateUpdateStudent extends ModalComponent
     {
         if($student_id){
             $this->student = Student::findOrFail($student_id)->toArray();
+            $this->data = [
+                'table_name' => 'Student',
+                'user_id' => auth()->user()->id,
+                'data_from' => $this->student,
+                'data_to' => [],
+            ];
         }
     }
 
@@ -45,7 +53,16 @@ class CreateUpdateStudent extends ModalComponent
             'student.gurdian_name' => 'required',
             'student.gurdian_contact' => 'required',
         ]);
-        Student::create( $this->student );
+        $student = Student::create( $this->student );
+        $data = [
+            'table_name' => 'Student',
+            'user_id' => auth()->user()->id,
+            'data_from' => [],
+            'data_to' => $student,
+        ];
+
+        $activityLogger = new ActivityLoggerController();
+        $activityLogger->logActivity($data);
         $this->closeModal();
     }
     public function update()
@@ -63,6 +80,10 @@ class CreateUpdateStudent extends ModalComponent
 
         $student = Student::findOrFail($this->student['id']);
         $student->update($this->student);
+        $this->data['data_to'] = $student;
+        $activityLogger = new ActivityLoggerController();
+        $activityLogger->logActivity($this->data);
+
         $this->closeModalWithEvents([
             StudentList::class => 'studentUpdated'
         ]);

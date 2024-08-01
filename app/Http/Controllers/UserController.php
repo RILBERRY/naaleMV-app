@@ -13,6 +13,7 @@ class UserController extends Controller
         $users = User::all('id','name','email','admin_approve_at');
         return view('pages.user', compact('users'));
     }
+
     public function approve($id)
     {
         $user = User::findOrFail($id);

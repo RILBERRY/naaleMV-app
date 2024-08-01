@@ -12,7 +12,7 @@ class StudentCompetitionLists extends ModalComponent
 {
     public $query = '';
     public $sortField = 'id';
-    public $sortType = 'asc';
+    public $sortType = 'desc';
     public $availableIncludeFields;
 
     function mount()
